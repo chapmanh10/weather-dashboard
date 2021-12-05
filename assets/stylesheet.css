@@ -28,11 +28,13 @@ main .container {
     height: 30%;
 }
 
-#icons {
-    margin-left: 8%;
-}
 
 #historybtn {
     width: 100%;
     margin-top: 5%
+}
+
+.forecast {
+    height: 100%;
+    padding: 3%
 }
