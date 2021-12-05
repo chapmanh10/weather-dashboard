@@ -29,21 +29,25 @@ var displayCityInfo = function (weatherData) {
     var cityDataContainer = document.getElementById("cityweatherdata")
     cityDataContainer.innerHTML = ""
     cityDataContainer.appendChild(cityName)
+
+    var weatherImage = document.createElement("img")
+    weatherImage.src = "http://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png"
+    cityDataContainer.appendChild(weatherImage)
     
     var cityDescription = document.createElement("div")
     cityDescription.textContent = weatherData.weather[0].description 
     cityDataContainer.appendChild(cityDescription)
     
     var cityTemp = document.createElement("div")
-    cityTemp.textContent = "temp" + " " + weatherData.main.temp 
+    cityTemp.textContent = "temp:" + " " + weatherData.main.temp 
     cityTemp.classList.add("info")
     cityDataContainer.appendChild(cityTemp)
     
     var cityWind = document.createElement("div")
-    cityWind.textContent = "wind" + " " + weatherData.wind.speed + " " + "mph"
+    cityWind.textContent = "wind:" + " " + weatherData.wind.speed + " " + "mph"
     cityDataContainer.appendChild(cityWind)
     
     var cityHumidity = document.createElement("div")
-    cityHumidity.textContent = "humidity" + " " + weatherData.main.humidity + " " + "%"
+    cityHumidity.textContent = "humidity:" + " " + weatherData.main.humidity + " " + "%"
     cityDataContainer.appendChild(cityHumidity)
 }
