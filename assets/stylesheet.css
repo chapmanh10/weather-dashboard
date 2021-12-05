@@ -20,6 +20,11 @@ main .container {
      top: 25%; left: 10%; height: 100%; width: 100%;
 }
 
+.info {
+    font-size: 16px;
+    
+}
+
 #row2 {
     height: 100%;
     margin-top: 2%;
