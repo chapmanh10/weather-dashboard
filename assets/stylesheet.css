@@ -2,6 +2,11 @@
     font-family: 'Play', sans-serif;
 }
 
+body {
+    background-color: black;
+    background-image: linear-gradient(90deg, black 0%, rgb(56, 56, 56) 90%)
+}
+
 header {
     background-color: #FA8BFF;
     background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
@@ -17,7 +22,17 @@ main .container {
 
 #row2 {
     height: 100%;
+    margin-top: 2%;
 }
 #history, #icons {
-    height: 60%;
+    height: 30%;
+}
+
+#icons {
+    margin-left: 8%;
+}
+
+#historybtn {
+    width: 100%;
+    margin-top: 5%
 }
