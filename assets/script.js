@@ -85,29 +85,49 @@ var displayFiveDayForecast = function(weatherData) {
     dayBoxesHolder.classList.add("row", "justify-content-between")
     forecastConatiner.appendChild(dayBoxesHolder)
 
+// day1
     var dayBox1 = document.createElement("div")
     dayBox1.classList.add("col-2","border","border-warning","forecast")
     dayBox1.textContent = "date"
+    var weatherImage1 = document.createElement("img")
+    weatherImage1.src = "http://openweathermap.org/img/wn/" + weatherData.daily[0].weather[0].icon + "@2x.png"
+    dayBox1.appendChild(weatherImage1)
     dayBoxesHolder.appendChild(dayBox1)
-    
+
+// day 2   
     var dayBox2 = document.createElement("div")
     dayBox2.classList.add("col-2","border","border-warning","forecast")
     dayBox2.textContent = "date"
+    var weatherImage2 = document.createElement("img")
+    weatherImage2.src = "http://openweathermap.org/img/wn/" + weatherData.daily[1].weather[0].icon + "@2x.png"
+    dayBox2.appendChild(weatherImage2)
     dayBoxesHolder.appendChild(dayBox2)
     
+// day 3
     var dayBox3 = document.createElement("div")
     dayBox3.classList.add("col-2","border","border-warning","forecast")
     dayBox3.textContent = "date"
+    var weatherImage3 = document.createElement("img")
+    weatherImage3.src = "http://openweathermap.org/img/wn/" + weatherData.daily[2].weather[0].icon + "@2x.png"
+    dayBox3.appendChild(weatherImage3)
     dayBoxesHolder.appendChild(dayBox3)
     
+// day 4
     var dayBox4 = document.createElement("div")
     dayBox4.classList.add("col-2","border","border-warning","forecast")
     dayBox4.textContent = "date"
+    var weatherImage4 = document.createElement("img")
+    weatherImage4.src = "http://openweathermap.org/img/wn/" + weatherData.daily[3].weather[0].icon + "@2x.png"
+    dayBox4.appendChild(weatherImage4)
     dayBoxesHolder.appendChild(dayBox4)
     
+// day 5 
     var dayBox5 = document.createElement("div")
     dayBox5.classList.add("col-2","border","border-warning","forecast")
     dayBox5.textContent = "date"
+    var weatherImage5 = document.createElement("img")
+    weatherImage5.src = "http://openweathermap.org/img/wn/" + weatherData.daily[4].weather[0].icon + "@2x.png"
+    dayBox5.appendChild(weatherImage5)
     dayBoxesHolder.appendChild(dayBox5)
 
 }
