@@ -92,6 +92,18 @@ var displayFiveDayForecast = function(weatherData) {
     var weatherImage1 = document.createElement("img")
     weatherImage1.src = "http://openweathermap.org/img/wn/" + weatherData.daily[0].weather[0].icon + "@2x.png"
     dayBox1.appendChild(weatherImage1)
+    var description1 = document.createElement("div")
+    description1.textContent = weatherData.daily[0].weather[0].description
+    dayBox1.appendChild(description1)
+    var temp1 = document.createElement("div")
+    temp1.textContent = "temp:" + " " + weatherData.daily[0].temp.day
+    dayBox1.appendChild(temp1)
+    var wind1 = document.createElement("div")
+    wind1.textContent = "wind speed:" + " " + weatherData.daily[0].wind_speed
+    dayBox1.appendChild(wind1)
+    var humidity1 = document.createElement("div")
+    humidity1.textContent = "humidity:" + " " + weatherData.daily[0].humidity + " " + "%"
+    dayBox1.appendChild(humidity1)
     dayBoxesHolder.appendChild(dayBox1)
 
 // day 2   
@@ -101,6 +113,18 @@ var displayFiveDayForecast = function(weatherData) {
     var weatherImage2 = document.createElement("img")
     weatherImage2.src = "http://openweathermap.org/img/wn/" + weatherData.daily[1].weather[0].icon + "@2x.png"
     dayBox2.appendChild(weatherImage2)
+    var description2 = document.createElement("div")
+    description2.textContent = weatherData.daily[1].weather[0].description
+    dayBox2.appendChild(description2)
+    var temp2 = document.createElement("div")
+    temp2.textContent = "temp:" + " " + weatherData.daily[1].temp.day
+    dayBox2.appendChild(temp2)
+    var wind2 = document.createElement("div")
+    wind2.textContent = "wind speed:" + " " + weatherData.daily[1].wind_speed
+    dayBox2.appendChild(wind2)
+    var humidity2 = document.createElement("div")
+    humidity2.textContent = "humidity:" + " " + weatherData.daily[1].humidity + " " + "%"
+    dayBox2.appendChild(humidity2)
     dayBoxesHolder.appendChild(dayBox2)
     
 // day 3
@@ -110,6 +134,18 @@ var displayFiveDayForecast = function(weatherData) {
     var weatherImage3 = document.createElement("img")
     weatherImage3.src = "http://openweathermap.org/img/wn/" + weatherData.daily[2].weather[0].icon + "@2x.png"
     dayBox3.appendChild(weatherImage3)
+    var description3 = document.createElement("div")
+    description3.textContent = weatherData.daily[2].weather[0].description
+    dayBox3.appendChild(description3)
+    var temp3 = document.createElement("div")
+    temp3.textContent = "temp:" + " " + weatherData.daily[2].temp.day
+    dayBox3.appendChild(temp3)
+    var wind3 = document.createElement("div")
+    wind3.textContent = "wind speed:" + " " + weatherData.daily[2].wind_speed
+    dayBox3.appendChild(wind3)
+    var humidity3 = document.createElement("div")
+    humidity3.textContent = "humidity:" + " " + weatherData.daily[2].humidity + " " + "%"
+    dayBox3.appendChild(humidity3)
     dayBoxesHolder.appendChild(dayBox3)
     
 // day 4
@@ -119,6 +155,18 @@ var displayFiveDayForecast = function(weatherData) {
     var weatherImage4 = document.createElement("img")
     weatherImage4.src = "http://openweathermap.org/img/wn/" + weatherData.daily[3].weather[0].icon + "@2x.png"
     dayBox4.appendChild(weatherImage4)
+    var description4 = document.createElement("div")
+    description4.textContent = weatherData.daily[3].weather[0].description
+    dayBox4.appendChild(description4)
+    var temp4 = document.createElement("div")
+    temp4.textContent = "temp:" + " " + weatherData.daily[3].temp.day
+    dayBox4.appendChild(temp4)
+    var wind4 = document.createElement("div")
+    wind4.textContent = "wind speed:" + " " + weatherData.daily[3].wind_speed
+    dayBox4.appendChild(wind4)
+    var humidity4 = document.createElement("div")
+    humidity4.textContent = "humidity:" + " " + weatherData.daily[3].humidity + " " + "%"
+    dayBox4.appendChild(humidity4)
     dayBoxesHolder.appendChild(dayBox4)
     
 // day 5 
@@ -128,6 +176,18 @@ var displayFiveDayForecast = function(weatherData) {
     var weatherImage5 = document.createElement("img")
     weatherImage5.src = "http://openweathermap.org/img/wn/" + weatherData.daily[4].weather[0].icon + "@2x.png"
     dayBox5.appendChild(weatherImage5)
+    var description5 = document.createElement("div")
+    description5.textContent = weatherData.daily[4].weather[0].description
+    dayBox5.appendChild(description5)
+    var temp5 = document.createElement("div")
+    temp5.textContent = "temp:" + " " + weatherData.daily[4].temp.day
+    dayBox5.appendChild(temp5)
+    var wind5 = document.createElement("div")
+    wind5.textContent = "wind speed:" + " " + weatherData.daily[4].wind_speed
+    dayBox5.appendChild(wind5)
+    var humidity5 = document.createElement("div")
+    humidity5.textContent = "humidity:" + " " + weatherData.daily[4].humidity + " " + "%"
+    dayBox5.appendChild(humidity5)
     dayBoxesHolder.appendChild(dayBox5)
 
 }
