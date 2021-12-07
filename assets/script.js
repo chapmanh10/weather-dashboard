@@ -77,8 +77,7 @@ var displayFiveDayForecast = function(weatherData) {
     var forecastConatiner = document.getElementById("icons")
     forecastConatiner.innerHTML = ""
   
-
-    var fiveDay = document.createElement("h4")
+    var fiveDay = document.createElement("h3")
     fiveDay.textContent = "5 Day Forecast"
     forecastConatiner.appendChild(fiveDay)
 
