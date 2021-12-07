@@ -43,7 +43,7 @@ var displayCityInfo = function (weatherData) {
     cityDataContainer.appendChild(cityDescription)
     
     var cityTemp = document.createElement("div")
-    cityTemp.textContent = "temp:" + " " + weatherData.main.temp 
+    cityTemp.textContent = "temp:" + " " + weatherData.main.temp + " " + "°F"
     cityTemp.classList.add("info")
     cityDataContainer.appendChild(cityTemp)
     
@@ -96,10 +96,10 @@ var displayFiveDayForecast = function(weatherData) {
     description1.textContent = weatherData.daily[0].weather[0].description
     dayBox1.appendChild(description1)
     var temp1 = document.createElement("div")
-    temp1.textContent = "temp:" + " " + weatherData.daily[0].temp.day
+    temp1.textContent = "temp:" + " " + weatherData.daily[0].temp.day + " " + "°F"
     dayBox1.appendChild(temp1)
     var wind1 = document.createElement("div")
-    wind1.textContent = "wind speed:" + " " + weatherData.daily[0].wind_speed
+    wind1.textContent = "wind speed:" + " " + weatherData.daily[0].wind_speed + " " + "mph"
     dayBox1.appendChild(wind1)
     var humidity1 = document.createElement("div")
     humidity1.textContent = "humidity:" + " " + weatherData.daily[0].humidity + " " + "%"
@@ -117,10 +117,10 @@ var displayFiveDayForecast = function(weatherData) {
     description2.textContent = weatherData.daily[1].weather[0].description
     dayBox2.appendChild(description2)
     var temp2 = document.createElement("div")
-    temp2.textContent = "temp:" + " " + weatherData.daily[1].temp.day
+    temp2.textContent = "temp:" + " " + weatherData.daily[1].temp.day + " " + "°F"
     dayBox2.appendChild(temp2)
     var wind2 = document.createElement("div")
-    wind2.textContent = "wind speed:" + " " + weatherData.daily[1].wind_speed
+    wind2.textContent = "wind speed:" + " " + weatherData.daily[1].wind_speed + " " + "mph"
     dayBox2.appendChild(wind2)
     var humidity2 = document.createElement("div")
     humidity2.textContent = "humidity:" + " " + weatherData.daily[1].humidity + " " + "%"
@@ -138,10 +138,10 @@ var displayFiveDayForecast = function(weatherData) {
     description3.textContent = weatherData.daily[2].weather[0].description
     dayBox3.appendChild(description3)
     var temp3 = document.createElement("div")
-    temp3.textContent = "temp:" + " " + weatherData.daily[2].temp.day
+    temp3.textContent = "temp:" + " " + weatherData.daily[2].temp.day + " " + "°F"
     dayBox3.appendChild(temp3)
     var wind3 = document.createElement("div")
-    wind3.textContent = "wind speed:" + " " + weatherData.daily[2].wind_speed
+    wind3.textContent = "wind speed:" + " " + weatherData.daily[2].wind_speed + " " + "mph"
     dayBox3.appendChild(wind3)
     var humidity3 = document.createElement("div")
     humidity3.textContent = "humidity:" + " " + weatherData.daily[2].humidity + " " + "%"
@@ -159,10 +159,10 @@ var displayFiveDayForecast = function(weatherData) {
     description4.textContent = weatherData.daily[3].weather[0].description
     dayBox4.appendChild(description4)
     var temp4 = document.createElement("div")
-    temp4.textContent = "temp:" + " " + weatherData.daily[3].temp.day
+    temp4.textContent = "temp:" + " " + weatherData.daily[3].temp.day + " " + "°F"
     dayBox4.appendChild(temp4)
     var wind4 = document.createElement("div")
-    wind4.textContent = "wind speed:" + " " + weatherData.daily[3].wind_speed
+    wind4.textContent = "wind speed:" + " " + weatherData.daily[3].wind_speed + " " + "mph"
     dayBox4.appendChild(wind4)
     var humidity4 = document.createElement("div")
     humidity4.textContent = "humidity:" + " " + weatherData.daily[3].humidity + " " + "%"
@@ -180,10 +180,10 @@ var displayFiveDayForecast = function(weatherData) {
     description5.textContent = weatherData.daily[4].weather[0].description
     dayBox5.appendChild(description5)
     var temp5 = document.createElement("div")
-    temp5.textContent = "temp:" + " " + weatherData.daily[4].temp.day
+    temp5.textContent = "temp:" + " " + weatherData.daily[4].temp.day + " " + "°F"
     dayBox5.appendChild(temp5)
     var wind5 = document.createElement("div")
-    wind5.textContent = "wind speed:" + " " + weatherData.daily[4].wind_speed
+    wind5.textContent = "wind speed:" + " " + weatherData.daily[4].wind_speed + " " + "mph"
     dayBox5.appendChild(wind5)
     var humidity5 = document.createElement("div")
     humidity5.textContent = "humidity:" + " " + weatherData.daily[4].humidity + " " + "%"

@@ -28,7 +28,7 @@ main .container {
 #row2 {
     height: 100%;
     margin-top: 2%;
-    margin-bottom: 300px;
+    margin-bottom: 150px;
 }
 #history, #icons {
     height: 30%;
@@ -44,7 +44,7 @@ main .container {
     height: 250px;
     padding: 1%;
     margin: 10px;
-    width: 185px;
+    width: 195px;
 }
 
 
