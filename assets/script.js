@@ -15,7 +15,6 @@ var getCurrentWeather = function (city) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    displayCityInfo(data)
                     getFiveDayForecast(data)
                     displayFiveDayForecast(data)
                 })
@@ -26,9 +25,10 @@ var getCurrentWeather = function (city) {
 }
 
 //Dynamically display city weather info retrieved 
-var displayCityInfo = function (weatherData) {
+var displayCityInfo = function (weatherData, data) {
     var cityName = document.createElement("h2")
-    cityName.textContent = weatherData.name
+    cityName.textContent = weatherData.name + " " + "current weather"
+    
     
     var cityDataContainer = document.getElementById("cityweatherdata")
     cityDataContainer.innerHTML = ""
@@ -54,6 +54,11 @@ var displayCityInfo = function (weatherData) {
     var cityHumidity = document.createElement("div")
     cityHumidity.textContent = "humidity:" + " " + weatherData.main.humidity + " " + "%"
     cityDataContainer.appendChild(cityHumidity)
+
+    var uvIndex = document.createElement("div")
+    uvIndex.textContent = "UV Index:" + " " + data.current.uvi 
+    cityDataContainer.appendChild(uvIndex)
+
 }
 
 // Retrieve 5 day forecast
@@ -66,6 +71,7 @@ var getFiveDayForecast = function(weatherData) {
             if (response.ok) {
                 response.json().then(function (data) {
                     displayFiveDayForecast(data)
+                    displayCityInfo(weatherData, data)
                 })
             }
         })
