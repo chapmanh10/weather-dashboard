@@ -1,10 +1,12 @@
 var searchForm = document.getElementById("searchcity")
+var citySearchHistory = []
 
 searchForm.onsubmit = function (event) {
     event.preventDefault()
     var city = event.target.elements.city.value
+    saveStorage(city)
     getCurrentWeather(city)
-    
+    historyButtonBuilder()
 
 }
 
@@ -17,6 +19,7 @@ var getCurrentWeather = function (city) {
                 response.json().then(function (data) {
                     getFiveDayForecast(data)
                     displayFiveDayForecast(data)
+                    
                 })
             } else {
                 alert("Error: City not found!")
@@ -82,6 +85,7 @@ var getFiveDayForecast = function(weatherData) {
 var displayFiveDayForecast = function(weatherData) {
     var forecastConatiner = document.getElementById("icons")
     forecastConatiner.innerHTML = ""
+
   
     var fiveDay = document.createElement("h3")
     fiveDay.textContent = "5 Day Forecast"
@@ -91,7 +95,11 @@ var displayFiveDayForecast = function(weatherData) {
     dayBoxesHolder.classList.add("row", "justify-content-between")
     forecastConatiner.appendChild(dayBoxesHolder)
 
+    
+
 // day1
+if (weatherData.daily === undefined) return;
+
     var dayBox1 = document.createElement("div")
     dayBox1.classList.add("col-2","border","border-warning","forecast")
     dayBox1.textContent = "date"
@@ -197,3 +205,39 @@ var displayFiveDayForecast = function(weatherData) {
     dayBoxesHolder.appendChild(dayBox5)
 
 }
+
+var saveStorage = function(city) {
+    var searchedCity = city
+    var found = citySearchHistory.find(function (x) { return x == searchedCity })
+    if (found === undefined) {
+
+    citySearchHistory.push(city)
+    localStorage.setItem("cities", JSON.stringify(citySearchHistory))
+    console.log(found)
+    }
+}
+
+var getStorage = function () {
+    var cities = localStorage.getItem("cities")
+    if (cities === null) {
+    }
+    else {
+        citySearchHistory = JSON.parse(cities)
+    }
+}
+
+var historyButtonBuilder = function () {
+    var histoyDiv = document.getElementById("history")
+    histoyDiv.innerHTML = " "
+    for (var i = 0; i <= 6 & i<citySearchHistory.length; i++) {
+        var cityButton = document.createElement("button")
+        cityButton.textContent = citySearchHistory[i]
+        cityButton.classList.add("btn", "btn-secondary", "btn-sm", "historybtn")
+        var cityName = citySearchHistory[i]
+        cityButton.addEventListener("click", function(){getCurrentWeather(cityName)})
+        histoyDiv.appendChild(cityButton)
+    }
+}
+
+getStorage()
+historyButtonBuilder()
