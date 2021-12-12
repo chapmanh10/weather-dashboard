@@ -29,13 +29,18 @@ var getCurrentWeather = function (city) {
 
 //Dynamically display city weather info retrieved 
 var displayCityInfo = function (weatherData, data) {
+
     var cityName = document.createElement("h2")
     cityName.textContent = weatherData.name + " " + "current weather"
-    
     
     var cityDataContainer = document.getElementById("cityweatherdata")
     cityDataContainer.innerHTML = ""
     cityDataContainer.appendChild(cityName)
+
+    var today = document.createElement("div")
+    today.id = "currentDay"
+    today.textContent = moment().format("dddd, MMMM Do YYYY")
+    cityDataContainer.appendChild(today)
 
     var weatherImage = document.createElement("img")
     weatherImage.src = "http://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png"
@@ -102,7 +107,9 @@ if (weatherData.daily === undefined) return;
 
     var dayBox1 = document.createElement("div")
     dayBox1.classList.add("col-2","border","border-warning","forecast")
-    dayBox1.textContent = "date"
+    var date1 = document.createElement("div")
+    date1.textContent = moment().add(1, 'd').format("dddd, MMM Do")
+    dayBox1.appendChild(date1)
     var weatherImage1 = document.createElement("img")
     weatherImage1.src = "http://openweathermap.org/img/wn/" + weatherData.daily[0].weather[0].icon + "@2x.png"
     dayBox1.appendChild(weatherImage1)
@@ -123,7 +130,9 @@ if (weatherData.daily === undefined) return;
 // day 2   
     var dayBox2 = document.createElement("div")
     dayBox2.classList.add("col-2","border","border-warning","forecast")
-    dayBox2.textContent = "date"
+    var date2 = document.createElement("div")
+    date2.textContent = moment().add(2, 'd').format("dddd, MMM Do")
+    dayBox2.appendChild(date2)
     var weatherImage2 = document.createElement("img")
     weatherImage2.src = "http://openweathermap.org/img/wn/" + weatherData.daily[1].weather[0].icon + "@2x.png"
     dayBox2.appendChild(weatherImage2)
@@ -144,7 +153,9 @@ if (weatherData.daily === undefined) return;
 // day 3
     var dayBox3 = document.createElement("div")
     dayBox3.classList.add("col-2","border","border-warning","forecast")
-    dayBox3.textContent = "date"
+    var date3 = document.createElement("div")
+    date3.textContent = moment().add(3, 'd').format("dddd, MMM Do")
+    dayBox3.appendChild(date3)
     var weatherImage3 = document.createElement("img")
     weatherImage3.src = "http://openweathermap.org/img/wn/" + weatherData.daily[2].weather[0].icon + "@2x.png"
     dayBox3.appendChild(weatherImage3)
@@ -165,7 +176,9 @@ if (weatherData.daily === undefined) return;
 // day 4
     var dayBox4 = document.createElement("div")
     dayBox4.classList.add("col-2","border","border-warning","forecast")
-    dayBox4.textContent = "date"
+    var date4 = document.createElement("div")
+    date4.textContent = moment().add(4, 'd').format("dddd, MMM Do")
+    dayBox4.appendChild(date4)
     var weatherImage4 = document.createElement("img")
     weatherImage4.src = "http://openweathermap.org/img/wn/" + weatherData.daily[3].weather[0].icon + "@2x.png"
     dayBox4.appendChild(weatherImage4)
@@ -186,7 +199,9 @@ if (weatherData.daily === undefined) return;
 // day 5 
     var dayBox5 = document.createElement("div")
     dayBox5.classList.add("col-2","border","border-warning","forecast")
-    dayBox5.textContent = "date"
+    var date5 = document.createElement("div")
+    date5.textContent = moment().add(5, 'd').format("dddd, MMM Do")
+    dayBox5.appendChild(date5)
     var weatherImage5 = document.createElement("img")
     weatherImage5.src = "http://openweathermap.org/img/wn/" + weatherData.daily[4].weather[0].icon + "@2x.png"
     dayBox5.appendChild(weatherImage5)
