@@ -4,9 +4,8 @@ var citySearchHistory = []
 searchForm.onsubmit = function (event) {
     event.preventDefault()
     var city = event.target.elements.city.value
-    saveStorage(city)
     getCurrentWeather(city)
-    historyButtonBuilder()
+   
 
 }
 
@@ -19,7 +18,9 @@ var getCurrentWeather = function (city) {
                 response.json().then(function (data) {
                     getFiveDayForecast(data)
                     displayFiveDayForecast(data)
-                    
+                    saveStorage(city)
+                    historyButtonBuilder()
+
                 })
             } else {
                 alert("Error: City not found!")
@@ -32,7 +33,7 @@ var displayCityInfo = function (weatherData, data) {
 
     var cityName = document.createElement("h2")
     cityName.textContent = weatherData.name + " " + "current weather"
-    
+
     var cityDataContainer = document.getElementById("cityweatherdata")
     cityDataContainer.innerHTML = ""
     cityDataContainer.appendChild(cityName)
@@ -45,34 +46,34 @@ var displayCityInfo = function (weatherData, data) {
     var weatherImage = document.createElement("img")
     weatherImage.src = "http://openweathermap.org/img/wn/" + weatherData.weather[0].icon + "@2x.png"
     cityDataContainer.appendChild(weatherImage)
-    
+
     var cityDescription = document.createElement("div")
-    cityDescription.textContent = weatherData.weather[0].description 
+    cityDescription.textContent = weatherData.weather[0].description
     cityDataContainer.appendChild(cityDescription)
-    
+
     var cityTemp = document.createElement("div")
     cityTemp.textContent = "temp:" + " " + weatherData.main.temp + " " + "°F"
     cityTemp.classList.add("info")
     cityDataContainer.appendChild(cityTemp)
-    
+
     var cityWind = document.createElement("div")
     cityWind.textContent = "wind:" + " " + weatherData.wind.speed + " " + "mph"
     cityDataContainer.appendChild(cityWind)
-    
+
     var cityHumidity = document.createElement("div")
     cityHumidity.textContent = "humidity:" + " " + weatherData.main.humidity + " " + "%"
     cityDataContainer.appendChild(cityHumidity)
 
     var uvIndex = document.createElement("div")
-    uvIndex.textContent = "UV Index:" + " " + data.current.uvi 
+    uvIndex.textContent = "UV Index:" + " " + data.current.uvi
     cityDataContainer.appendChild(uvIndex)
 
 }
 
 // Retrieve 5 day forecast
-var getFiveDayForecast = function(weatherData) {
+var getFiveDayForecast = function (weatherData) {
     var latitude = weatherData.coord.lat
-    var longitude = weatherData.coord.lon 
+    var longitude = weatherData.coord.lon
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&appid=ca98fc0b9163dcb5cfa4afef21ee9283&units=imperial"
     fetch(apiUrl)
         .then(function (response) {
@@ -83,15 +84,15 @@ var getFiveDayForecast = function(weatherData) {
                 })
             }
         })
-      
+
 }
 
 //Dispaly 5 day forecast
-var displayFiveDayForecast = function(weatherData) {
+var displayFiveDayForecast = function (weatherData) {
     var forecastConatiner = document.getElementById("icons")
     forecastConatiner.innerHTML = ""
 
-  
+
     var fiveDay = document.createElement("h3")
     fiveDay.textContent = "5 Day Forecast"
     forecastConatiner.appendChild(fiveDay)
@@ -100,13 +101,13 @@ var displayFiveDayForecast = function(weatherData) {
     dayBoxesHolder.classList.add("row", "justify-content-between")
     forecastConatiner.appendChild(dayBoxesHolder)
 
-    
 
-// day1
-if (weatherData.daily === undefined) return;
+
+    // day1
+    if (weatherData.daily === undefined) return;
 
     var dayBox1 = document.createElement("div")
-    dayBox1.classList.add("col-2","border","border-warning","forecast")
+    dayBox1.classList.add("col-2", "border", "border-warning", "forecast")
     var date1 = document.createElement("div")
     date1.textContent = moment().add(1, 'd').format("dddd, MMM Do")
     dayBox1.appendChild(date1)
@@ -127,9 +128,9 @@ if (weatherData.daily === undefined) return;
     dayBox1.appendChild(humidity1)
     dayBoxesHolder.appendChild(dayBox1)
 
-// day 2   
+    // day 2   
     var dayBox2 = document.createElement("div")
-    dayBox2.classList.add("col-2","border","border-warning","forecast")
+    dayBox2.classList.add("col-2", "border", "border-warning", "forecast")
     var date2 = document.createElement("div")
     date2.textContent = moment().add(2, 'd').format("dddd, MMM Do")
     dayBox2.appendChild(date2)
@@ -149,10 +150,10 @@ if (weatherData.daily === undefined) return;
     humidity2.textContent = "humidity:" + " " + weatherData.daily[1].humidity + " " + "%"
     dayBox2.appendChild(humidity2)
     dayBoxesHolder.appendChild(dayBox2)
-    
-// day 3
+
+    // day 3
     var dayBox3 = document.createElement("div")
-    dayBox3.classList.add("col-2","border","border-warning","forecast")
+    dayBox3.classList.add("col-2", "border", "border-warning", "forecast")
     var date3 = document.createElement("div")
     date3.textContent = moment().add(3, 'd').format("dddd, MMM Do")
     dayBox3.appendChild(date3)
@@ -172,10 +173,10 @@ if (weatherData.daily === undefined) return;
     humidity3.textContent = "humidity:" + " " + weatherData.daily[2].humidity + " " + "%"
     dayBox3.appendChild(humidity3)
     dayBoxesHolder.appendChild(dayBox3)
-    
-// day 4
+
+    // day 4
     var dayBox4 = document.createElement("div")
-    dayBox4.classList.add("col-2","border","border-warning","forecast")
+    dayBox4.classList.add("col-2", "border", "border-warning", "forecast")
     var date4 = document.createElement("div")
     date4.textContent = moment().add(4, 'd').format("dddd, MMM Do")
     dayBox4.appendChild(date4)
@@ -195,10 +196,10 @@ if (weatherData.daily === undefined) return;
     humidity4.textContent = "humidity:" + " " + weatherData.daily[3].humidity + " " + "%"
     dayBox4.appendChild(humidity4)
     dayBoxesHolder.appendChild(dayBox4)
-    
-// day 5 
+
+    // day 5 
     var dayBox5 = document.createElement("div")
-    dayBox5.classList.add("col-2","border","border-warning","forecast")
+    dayBox5.classList.add("col-2", "border", "border-warning", "forecast")
     var date5 = document.createElement("div")
     date5.textContent = moment().add(5, 'd').format("dddd, MMM Do")
     dayBox5.appendChild(date5)
@@ -221,14 +222,14 @@ if (weatherData.daily === undefined) return;
 
 }
 
-var saveStorage = function(city) {
+var saveStorage = function (city) {
     var searchedCity = city
     var found = citySearchHistory.find(function (x) { return x == searchedCity })
     if (found === undefined) {
 
-    citySearchHistory.push(city)
-    localStorage.setItem("cities", JSON.stringify(citySearchHistory))
-    console.log(found)
+        citySearchHistory.push(city)
+        localStorage.setItem("cities", JSON.stringify(citySearchHistory))
+        console.log(found)
     }
 }
 
@@ -244,14 +245,18 @@ var getStorage = function () {
 var historyButtonBuilder = function () {
     var histoyDiv = document.getElementById("history")
     histoyDiv.innerHTML = " "
-    for (var i = 0; i <= 6 & i<citySearchHistory.length; i++) {
+    for (var i = 0; i <= 6 & i < citySearchHistory.length; i++) {
         var cityButton = document.createElement("button")
         cityButton.textContent = citySearchHistory[i]
+        cityButton.dataset.cityname = citySearchHistory[i]
         cityButton.classList.add("btn", "btn-secondary", "btn-sm", "historybtn")
-        var cityName = citySearchHistory[i]
-        cityButton.addEventListener("click", function(){getCurrentWeather(cityName)})
+        cityButton.addEventListener("click", handleHistoryClick)
         histoyDiv.appendChild(cityButton)
     }
+}
+
+var handleHistoryClick = function (event) {
+    getCurrentWeather(event.target.dataset.cityname)
 }
 
 getStorage()
